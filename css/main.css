@@ -1,0 +1,224 @@
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Definición de colores principales y otras variables */
+:root {
+    --clr-main: #56a8e2;
+    --clr-main-light: rgb(237, 166, 166);
+    --clr-white: white;
+    --clr-gray: white;
+    --clr-red: #020007;
+}
+
+/* Reset básico y estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Estilos para encabezados, párrafos, enlaces y listas */
+h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+/* Estilo para listas desordenadas */
+ul {
+    list-style-type: none;
+}
+
+/* Estilo para enlaces */
+a {
+    text-decoration: none;
+}
+
+/* Estilo para el logo */
+.logo {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+/* Estilo para la sección de takeaway */
+.takeaway {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para el menú */
+.menu {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+/* Estilo para botones de menú */
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--clr-black); /* Corrección: Cambiado de var(black) a var(--clr-black) */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .85rem;
+    width: 100%;
+}
+
+/* Estilo para botones de menú activos */
+.boton-menu.active {
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+    position: relative;
+}
+
+/* Estilo para el efecto activo de botones de menú */
+.boton-menu.active::before,
+.boton-menu.active::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    background-color: transparent;
+    box-shadow: 0 1rem 0 var(--clr-white), 0 -1rem 0 var(--clr-white);
+    bottom: 100%;
+    top: 100%;
+    right: 0;
+}
+
+/* Estilo para íconos dentro de botones de menú */
+.boton-menu > i.bi-hand-index-thumb-fill,
+.boton-menu > i.bi-hand-index-thumb {
+    transform: rotateZ(90deg);
+}
+
+/* Estilo para el botón del carrito */
+.boton-carrito {
+    margin-top: 2rem;
+}
+
+/* Estilo para el número en el botón del carrito */
+.numero {
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+    padding: .15rem .25rem;
+}
+
+/* Estilo para el número en el botón del carrito cuando está activo */
+.boton-carrito.active .numero {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+}
+
+/* Estilo para texto en el footer */
+.texto-footer {
+    color: var(--clr-main-light);
+    font-size: .85rem;
+}
+
+/* Estilo para el contenedor principal */
+main {
+    background-color: var(--clr-white);
+    margin: 1rem;
+    padding: 3rem;
+}
+
+/* Estilo para el título principal */
+.titulo-principal {
+    color: var(--clr-black);
+    margin-bottom: 2rem;
+}
+
+/* Estilo para el contenedor de productos */
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+/* Estilo para imágenes de productos */
+.producto-imagen {
+    max-width: 100%;
+}
+
+/* Estilo para detalles de productos */
+.producto-detalles {
+    background-color: var(--clr-main);
+    color: var(--clr-black);
+    padding: .5rem;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+/* Estilo para el título del producto */
+.producto-titulo {
+    font-size: 1rem;
+}
+
+/* Estilo para el botón de agregar producto */
+.producto-agregar {
+    border: 0;
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: .4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid var(--clr-white);
+    transition: background-color .2s, color .2s;
+}
+
+/* Estilo para el botón de agregar producto al pasar el mouse */
+.producto-agregar:hover {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+}
+
+/* ... (estilos para el carrito y acciones del carrito) ... */
+
+/* Estilos responsivos para tamaños de pantalla específicos */
+@media screen and (max-width: 850px) {
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* ... (estilos específicos para pantallas pequeñas) ... */
+}
+
+/* Estilos de animación */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.container, aside, main {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ... (otros estilos de animación y transición) ... */
+
+@media screen and (max-width: 400px) {
+    .contenedor-productos {
+        grid-template-columns: 1fr;
+    }
+}
